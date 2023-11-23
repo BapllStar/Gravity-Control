@@ -1,0 +1,2 @@
+Fixed - Player Rigidbody collides and rotates with other RB's
+IsGrounded on Playermover is fucked because all walls are ground. Make it so that grounda are also defined on how slanted their collisions normal is.
