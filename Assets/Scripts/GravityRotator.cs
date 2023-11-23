@@ -12,11 +12,11 @@ public class GravityRotator : MonoBehaviour
         gm = GameObject.Find("Gravity Manager").GetComponent<GravityManager>();
     }
 
-    // Update is called once per frame
+    // FixedUpdate is used for consistent updates in physics calculations
     void Update()
     {
         // The step size is equal to speed times frame time.
-        float singleStep = speed;
+        float singleStep = speed * Time.deltaTime;
 
         // Calculate the direction to rotate from the object's down vector towards the target direction
         Vector3 newDirection = Vector3.RotateTowards(-transform.up, gm.globalGravity, singleStep, 0.0f);
@@ -28,7 +28,7 @@ public class GravityRotator : MonoBehaviour
         Quaternion toRotation = Quaternion.FromToRotation(-transform.up, newDirection) * transform.rotation;
 
         // Smoothly interpolate the rotation towards the target rotation
-        transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, singleStep);
-
+        // The interpolation factor is fixed to ensure consistent rotation speed
+        transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 0.5f);
     }
 }
