@@ -18,6 +18,6 @@ public class GravityCotroller : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.AddForce(gm.globalGravity * 9.81f); // Replace 9.81 with your desired gravity strength
+        rb.AddForce(gm.globalGravity * 9.81f * rb.mass); // Replace 9.81 with your desired gravity strength
     }
 }
