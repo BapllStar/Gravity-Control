@@ -10,7 +10,9 @@ public class PlayerMover : MonoBehaviour
         jumpHeight,
         maxGroundAngle;
 
-    private GameObject groundCheck;
+    //private GameObject groundCheck;
+    [SerializeField]
+    private Transform head;
     private Rigidbody rb;
     private bool
         isGrounded,
@@ -23,7 +25,6 @@ public class PlayerMover : MonoBehaviour
     {
         gm = GameObject.Find("Gravity Manager").GetComponent<GravityManager>();
         rb = GetComponent<Rigidbody>();
-        groundCheck = transform.Find("GroundCheck").gameObject;
     }
 
 
@@ -49,9 +50,11 @@ public class PlayerMover : MonoBehaviour
         // Create a movement vector based on input
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        // Adjust the movement vector based on the player's rotation
-        // This now takes into account the player's orientation in all three dimensions
-        movement = transform.rotation * movement;
+        // Get the rotation of the VR headset (assuming you have a reference to it)
+        Quaternion headsetRotation = head.rotation;
+
+        // Rotate the movement vector based on the headset's rotation
+        movement = headsetRotation * movement;
 
         // Move the player
         rb.MovePosition(transform.position + movement * moveSpeed * Time.fixedDeltaTime);
