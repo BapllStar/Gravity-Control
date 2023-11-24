@@ -6,20 +6,20 @@ public class ChangeGrabLayer : MonoBehaviour
 {
     [SerializeField]
     private LayerMask
-        grabable,
+        grabbable,
         grabbed;
 
     public void Grabable()
     {
-        int layerIndex = LayerMaskToLayerIndex(grabable);
-        Debug.Log("Layer index for grabable: " + layerIndex);
+        int layerIndex = LayerMaskToLayerIndex(grabbable);
+        //Debug.Log("Layer index for grabable: " + layerIndex);
         gameObject.layer = layerIndex;
     }
 
     public void Grabbed()
     {
         int layerIndex = LayerMaskToLayerIndex(grabbed);
-        Debug.Log("Layer index for grabbed: " + layerIndex);
+        //Debug.Log("Layer index for grabbed: " + layerIndex);
         gameObject.layer = layerIndex;
     }
 
