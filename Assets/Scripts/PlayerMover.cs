@@ -51,13 +51,18 @@ public class PlayerMover : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         // Get the rotation of the VR headset (assuming you have a reference to it)
-        Quaternion headsetRotation = head.rotation;
+        Quaternion headsetRotation = Quaternion.Euler(OnlyYAxis(head.localRotation.eulerAngles)) * head.parent.rotation;
 
         // Rotate the movement vector based on the headset's rotation
         movement = headsetRotation * movement;
 
         // Move the player
         rb.MovePosition(transform.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    private Vector3 OnlyYAxis(Vector3 original)
+    {
+        return new Vector3(0, original.y, 0);
     }
 
     void OnCollisionStay(Collision collision)

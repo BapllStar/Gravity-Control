@@ -26,6 +26,6 @@ public class BodyPlacement : MonoBehaviour
 
     private Vector3 NoYAxis (Vector3 original)
     {
-        return original - new Vector3(0, original.y, 0);
+        return new Vector3(original.x, 0, original.z);
     }
 }

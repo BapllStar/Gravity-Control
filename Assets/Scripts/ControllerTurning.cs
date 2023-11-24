@@ -9,6 +9,9 @@ public class ControllerTurning : MonoBehaviour
     [SerializeField]
     private float rotationSpeed = 30f; // Adjust the rotation speed as needed.
 
+    [SerializeField]
+    private Transform head;
+
     private void Update()
     {
         // Read the joystick input value.
@@ -23,7 +26,7 @@ public class ControllerTurning : MonoBehaviour
         // Calculate the rotation amount based on joystick input.
         float rotationAmount = input.x * rotationSpeed * Time.deltaTime;
 
-        // Apply rotation to the object (you can replace "transform" with your object's transform).
-        transform.Rotate(Vector3.up, rotationAmount);
+        // Apply rotation around the head transform.
+        transform.RotateAround(head.position, transform.up, rotationAmount);
     }
 }
