@@ -12,7 +12,6 @@ public class BodyPlacement : MonoBehaviour
 
     [SerializeField]
     private float
-        offset,
         headWeight,
         rHandWeight,
         lHandWeight;
@@ -20,7 +19,15 @@ public class BodyPlacement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newPos = (NoYAxis(head.localPosition) * headWeight + NoYAxis(lHand.localPosition) * lHandWeight + NoYAxis(rHand.localPosition) * rHandWeight) / (headWeight + rHandWeight + lHandWeight) + new Vector3(0, offset,0);
+        Debug.DrawRay(transform.position, head.position - transform.position, Color.red);
+        Debug.DrawRay(transform.position, lHand.position - transform.position, Color.blue);
+        Debug.DrawRay(transform.position, rHand.position - transform.position, Color.blue);
+        Debug.DrawRay(head.position, lHand.position - head.position, Color.green);
+        Debug.DrawRay(head.position, rHand.position - head.position, Color.green);
+        Debug.DrawRay(transform.position, transform.parent.parent.parent.position - transform.position, Color.cyan);
+        float yScale = head.localPosition.y/2;
+        transform.localScale = new Vector3(transform.localScale.x, yScale, transform.localScale.z);
+        Vector3 newPos = (NoYAxis(head.localPosition) * headWeight + NoYAxis(lHand.localPosition) * lHandWeight + NoYAxis(rHand.localPosition) * rHandWeight) / (headWeight + rHandWeight + lHandWeight) + transform.up * yScale;
         transform.localPosition = newPos;
     }
 

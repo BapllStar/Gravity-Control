@@ -7,6 +7,7 @@ public class GravityRotator : MonoBehaviour
     private GravityManager gm;
     [SerializeField]
     private float speed;
+
     private void Awake()
     {
         gm = GameObject.Find("Gravity Manager").GetComponent<GravityManager>();

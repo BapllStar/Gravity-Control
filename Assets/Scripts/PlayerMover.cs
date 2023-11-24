@@ -18,8 +18,6 @@ public class PlayerMover : MonoBehaviour
         isGrounded,
         wasGrounded;
 
-    public LayerMask jumpableLayers;
-
     private GravityManager gm;
     private void Awake()
     {
