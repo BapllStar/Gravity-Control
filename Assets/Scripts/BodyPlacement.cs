@@ -27,7 +27,15 @@ public class BodyPlacement : MonoBehaviour
         Debug.DrawRay(transform.position, transform.parent.parent.parent.position - transform.position, Color.cyan);
         float yScale = head.localPosition.y/2;
         transform.localScale = new Vector3(transform.localScale.x, yScale, transform.localScale.z);
-        Vector3 newPos = (NoYAxis(head.localPosition) * headWeight + NoYAxis(lHand.localPosition) * lHandWeight + NoYAxis(rHand.localPosition) * rHandWeight) / (headWeight + rHandWeight + lHandWeight) + transform.up * yScale;
+        Vector3 newPos = 
+            (
+                NoYAxis(head.localPosition) * headWeight
+                + NoYAxis(lHand.localPosition) * lHandWeight
+                + NoYAxis(rHand.localPosition) * rHandWeight
+            )
+            / (headWeight + rHandWeight + lHandWeight) 
+            + Vector3.up * yScale
+            ;
         transform.localPosition = newPos;
     }
 
