@@ -12,21 +12,40 @@ public class GravityChanger : MonoBehaviour
     [SerializeField]
     private LayerMask shootLayer;
 
+    [SerializeField]
+    private PhysicalSlider slider;
+
+    [SerializeField]
+    private float
+        fireRate,
+        lastFireTime;
+
     private void Awake()
     {
         gm = GameObject.Find("Gravity Manager").GetComponent<GravityManager>();
         XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
         grabbable.activated.AddListener(Shoot);
+        slider.max = fireRate;
+    }
+
+    private void Update()
+    {
+        slider.value = Time.time - lastFireTime;
     }
 
     public void Shoot(ActivateEventArgs args) 
     {
-        //Debug.Log("Clicked Sooot");
-        Vector3? normal = CastRayAndGetNormal(shootTransform.position, shootTransform.forward, 100.0f);
-        if (normal.HasValue)
+        if(Time.time >= lastFireTime + fireRate)
         {
-            gm.globalGravity = normal.Value * -4.91f;
+            lastFireTime = Time.time;
+            //Debug.Log("Clicked Sooot");
+            Vector3? normal = CastRayAndGetNormal(shootTransform.position, shootTransform.forward, 100.0f);
+            if (normal.HasValue)
+            {
+                gm.globalGravity = normal.Value * -gm.globalGravity.magnitude;
+            }
         }
+        
     }
 
     public Vector3? CastRayAndGetNormal(Vector3 origin, Vector3 direction, float maxDistance)

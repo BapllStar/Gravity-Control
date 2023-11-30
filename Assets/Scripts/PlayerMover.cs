@@ -12,7 +12,9 @@ public class PlayerMover : MonoBehaviour
 
     //private GameObject groundCheck;
     [SerializeField]
-    private Transform head;
+    private Transform
+        head,
+        xROrigin;
     private Rigidbody rb;
     private bool
         isGrounded,
@@ -49,18 +51,27 @@ public class PlayerMover : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         // Get the rotation of the VR headset (assuming you have a reference to it)
-        Quaternion headsetRotation = Quaternion.Euler(OnlyYAxis(head.localRotation.eulerAngles)) * head.parent.rotation;
+        //Quaternion headsetRotation = OnlyYAxis(head.localRotation) * head.parent.rotation;
+        Quaternion headsetRotation = head.rotation;
+
+        Debug.DrawRay(head.position, headsetRotation * Vector3.forward, Color.black);
+
 
         // Rotate the movement vector based on the headset's rotation
-        movement = headsetRotation * movement;
+        movement = Vector3.ProjectOnPlane(headsetRotation * movement, gm.globalGravity);
 
         // Move the player
         rb.MovePosition(transform.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
-    private Vector3 OnlyYAxis(Vector3 original)
+    /*private Quaternion OnlyYAxis(Quaternion original)
     {
-        return new Vector3(0, original.y, 0);
+        return Quaternion.Euler(new Vector3(0, original.eulerAngles.y, 0));
+    }*/
+
+    private Vector3 NoNAxis(Vector3 original, Vector3 axis)
+    {
+        return new Vector3(original.x, 0, original.z);
     }
 
     void OnCollisionStay(Collision collision)
