@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class ChangeGrabLayer : MonoBehaviour
 {
-    [SerializeField]
-    private LayerMask
-        grabbable,
-        grabbed;
 
     public void Grabable()
     {
-        int layerIndex = LayerMaskToLayerIndex(grabbable);
+        int layerIndex = LayerMask.NameToLayer("Grabbable");
         //Debug.Log("Layer index for grabable: " + layerIndex);
         gameObject.layer = layerIndex;
     }
 
     public void Grabbed()
     {
-        int layerIndex = LayerMaskToLayerIndex(grabbed);
+        int layerIndex = LayerMask.NameToLayer("Grabbed");
         //Debug.Log("Layer index for grabbed: " + layerIndex);
         gameObject.layer = layerIndex;
     }
