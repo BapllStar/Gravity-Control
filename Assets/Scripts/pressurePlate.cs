@@ -78,7 +78,7 @@ public class pressurePlate : MonoBehaviour
         //Debug.Log("WPC ENTERED PRESSURE PLATE");
         if (other.CompareTag("Weighted Pressure Cube"))
         {
-            Debug.Log("Pressure Cube On Plate");
+            //Debug.Log("Pressure Cube On Plate");
             m_targetValue = 100f;
             audioSource.time = 7f;
             audioSource.Play();

@@ -35,7 +35,7 @@ public class PlayerMover : MonoBehaviour
         {
             isGrounded = false;
             float jumpForce = Mathf.Sqrt(jumpHeight * 2 * gm.globalGravity.magnitude);
-            Debug.Log(jumpForce);
+            //Debug.Log(jumpForce);
             rb.AddForce(gm.globalGravity.normalized * -jumpForce, ForceMode.Impulse);
             //isGrounded = false;
         }

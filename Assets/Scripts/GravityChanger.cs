@@ -95,7 +95,7 @@ public class GravityChanger : MonoBehaviour
             eulerAngles = new Vector3(Mathf.Round(eulerAngles.x / 90) * 90, Mathf.Round(eulerAngles.y / 90) * 90, Mathf.Round(eulerAngles.z / 90) * 90);
 
             // Output the Euler angles (optional)
-            Debug.Log("Euler Angles: " + eulerAngles);
+            //Debug.Log("Euler Angles: " + eulerAngles);
 
             // Convert Euler angles back to a Quaternion
             Quaternion rotation = Quaternion.Euler(eulerAngles);
