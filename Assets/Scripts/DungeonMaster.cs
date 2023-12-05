@@ -15,10 +15,12 @@ public class DungeonMaster : MonoBehaviour
     public void WinGame()
 	{
 		StopPlaying();
+		SceneManager.LoadScene("WinScene");
 	}
 
     public void LoseGame()
 	{
 		StopPlaying();
+		SceneManager.LoadScene("LoseScene");
 	}
 }
