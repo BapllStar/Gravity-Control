@@ -5,8 +5,6 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField]
-    private float gameLength = 20 * 60;
     private TMP_Text text;
 
     private DungeonMaster dm;
@@ -22,7 +20,10 @@ public class Timer : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        float timeLeft = gameLength - Time.time;
+        float
+            timeLeft = dm.timeLeft,
+            gameLength = dm.gameLength;
+        
         if (ValueBetween(timeLeft, gameLength / 2, gameLength / 4))
 		{
             text.color = Color.yellow;

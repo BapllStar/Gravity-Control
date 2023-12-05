@@ -20,4 +20,6 @@ public class GravityFieldChanger : MonoBehaviour
             gm.globalGravity = gravityChange;
         }
     }
+
+
 }
