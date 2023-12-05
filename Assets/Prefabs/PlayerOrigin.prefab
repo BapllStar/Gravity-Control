@@ -1617,7 +1617,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 01f61fb3d3c5cf54c8d475d0aa6c2ca9, type: 2}
+  - {fileID: 2100000, guid: 128aafbb3b2b6e54da97d709c8855536, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1789,7 +1789,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 01f61fb3d3c5cf54c8d475d0aa6c2ca9, type: 2}
+  - {fileID: 2100000, guid: 128aafbb3b2b6e54da97d709c8855536, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3196,7 +3196,7 @@ GameObject:
   - component: {fileID: 2983265436033358815}
   m_Layer: 0
   m_Name: PlayerOrigin
-  m_TagString: Untagged
+  m_TagString: Weighted Pressure Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3256,6 +3256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747048db2526a7449b03b9108c9ceefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 0}
 --- !u!114 &7816889197997408214
 MonoBehaviour:
   m_ObjectHideFlags: 0

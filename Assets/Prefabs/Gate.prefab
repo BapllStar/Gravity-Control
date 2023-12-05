@@ -99,7 +99,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fe0c5d0b0ffa8c345a7975bca4443146, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,6 +137,7 @@ MonoBehaviour:
   endPoint: {fileID: 6803694870973886196}
   rotationOffset: {x: 90, y: -90, z: 0}
   gateSpeedMultiplier: 2.75
+  newLerpPos: 0.5
   gravity: {x: 0, y: -9.81, z: 0}
 --- !u!65 &2736849262098261825
 BoxCollider:
@@ -316,7 +317,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 954da1c433681c546bc0e22387d39bc3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

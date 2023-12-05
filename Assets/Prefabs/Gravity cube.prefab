@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.84787, y: 19.433256, z: -19.097795}
-  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7963979229443806089}
@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: {x: 0, y: 0, z: 1}
+  respawnPoint: {fileID: 0}
 --- !u!65 &1922467371096712976
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -287,12 +288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f8919b9d51c70f4cbe157c02daee972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabbable:
-    serializedVersion: 2
-    m_Bits: 128
-  grabbed:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!1 &7298723361180417316
 GameObject:
   m_ObjectHideFlags: 0
